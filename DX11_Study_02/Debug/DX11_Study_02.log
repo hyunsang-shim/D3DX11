@@ -1,0 +1,24 @@
+﻿cl : 명령줄 warning D9030: '/Gm'이(가) 다중 처리와 호환되지 않습니다. /MP 스위치를 무시합니다.
+  Viewport.cpp
+  Perspective.cpp
+  Xml.cpp
+  String.cpp
+  Path.cpp
+  Math.cpp
+  Json.cpp
+  BinaryFile.cpp
+  Window.cpp
+  Time.cpp
+  Mouse.cpp
+  Keyboard.cpp
+  D3D.cpp
+  States.cpp
+  Shader.cpp
+  Program.cpp
+  main.cpp
+  코드를 생성하고 있습니다...
+jsoncpp.lib(json_reader.obj) : warning LNK4099: 'lib_json.pdb' PDB를 'jsoncpp.lib(json_reader.obj)' 또는 'K:\WORK\D3DX11\DX11_Study_02\Debug\lib_json.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+jsoncpp.lib(json_value.obj) : warning LNK4099: 'lib_json.pdb' PDB를 'jsoncpp.lib(json_value.obj)' 또는 'K:\WORK\D3DX11\DX11_Study_02\Debug\lib_json.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+jsoncpp.lib(json_writer.obj) : warning LNK4099: 'lib_json.pdb' PDB를 'jsoncpp.lib(json_writer.obj)' 또는 'K:\WORK\D3DX11\DX11_Study_02\Debug\lib_json.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+  DX11_Study_02.vcxproj -> K:\WORK\D3DX11\DX11_Study_02\Debug\DX11_Study_02.exe
+  DX11_Study_02.vcxproj -> K:\WORK\D3DX11\DX11_Study_02\Debug\DX11_Study_02.pdb (Partial PDB)
