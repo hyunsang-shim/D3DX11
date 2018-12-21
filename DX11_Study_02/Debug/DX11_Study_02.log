@@ -1,21 +1,3 @@
-﻿cl : 명령줄 warning D9030: '/Gm'이(가) 다중 처리와 호환되지 않습니다. /MP 스위치를 무시합니다.
-  main.cpp
-  Viewport.cpp
-  Perspective.cpp
-  String.cpp
-  Path.cpp
-  Math.cpp
-  Json.cpp
-  BinaryFile.cpp
-  Window.cpp
-  Time.cpp
-  Mouse.cpp
-  Keyboard.cpp
-  D3D.cpp
-  States.cpp
-  Shader.cpp
-  Program.cpp
-  ExeTriangle.cpp
-  코드를 생성하고 있습니다...
+﻿  ExeRect.cpp
   DX11_Study_02.vcxproj -> K:\WORK\D3DX11\DX11_Study_02\Debug\DX11_Study_02.exe
   DX11_Study_02.vcxproj -> K:\WORK\D3DX11\DX11_Study_02\Debug\DX11_Study_02.pdb (Partial PDB)

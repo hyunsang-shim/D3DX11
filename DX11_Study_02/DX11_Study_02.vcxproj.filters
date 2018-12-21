@@ -81,6 +81,9 @@
     <ClCompile Include="Viewer\Viewport.cpp">
       <Filter>Viewer</Filter>
     </ClCompile>
+    <ClCompile Include="ExeRect.cpp">
+      <Filter>Excute</Filter>
+    </ClCompile>
     <ClCompile Include="Executes\ExeTriangle.cpp">
       <Filter>Excute</Filter>
     </ClCompile>
@@ -147,6 +150,9 @@
       <Filter>Viewer</Filter>
     </ClInclude>
     <ClInclude Include="Executes\Execute.h">
+      <Filter>Excute</Filter>
+    </ClInclude>
+    <ClInclude Include="ExeRect.h">
       <Filter>Excute</Filter>
     </ClInclude>
     <ClInclude Include="Executes\ExeTriangle.h">

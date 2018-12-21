@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Program.h"
 #include "Executes\ExeTriangle.h"		// << added
+#include "Executes\ExeRect.h"		// << added
 
 Program::Program()
 {
@@ -21,7 +22,8 @@ Program::Program()
 
 	D3DXMatrixLookAtLH(&view, &position, &(position + forward), &up);
 
-	executes.push_back(new ExeTriangle(values)); // Enlist item
+	//executes.push_back(new ExeTriangle(values)); // Enlist item
+	executes.push_back(new ExeRect(values)); // Enlist item
 }
 
 Program::~Program()
