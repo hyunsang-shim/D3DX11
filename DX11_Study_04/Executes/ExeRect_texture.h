@@ -21,6 +21,9 @@ private:
 
 	int number;
 	ID3D11SamplerState*			state[4];
+	float fUV_UtoEnd;
+	float fUV_VtoEnd;
+	int flagUV = 0;				// UV Coord for U(end value) -1 | UV Coord for V(end value) 1 | 0 for select none
 
 
 

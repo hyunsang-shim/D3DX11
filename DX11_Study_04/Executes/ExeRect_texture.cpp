@@ -5,8 +5,9 @@ ExeRect_texture::ExeRect_texture(ExecuteValues* values)
 	: Execute(values)
 	, vertexCount(4), indexCount(6)
 	, number(0)
+	, flagUV(0),	fUV_UtoEnd(0.2f),	fUV_VtoEnd(0.2f)
 {
-	shader = new Shader(defShader + L"004_Texture.hlsl");
+	shader = new Shader(ShaderPath + L"004_Texture.hlsl");
 	worldBuffer = new WorldBuffer();
 	colorBuffer = new ColorBuffer();
 
@@ -17,9 +18,9 @@ ExeRect_texture::ExeRect_texture(ExecuteValues* values)
 	vertices[3].Position = D3DXVECTOR3(1, 1, 0);
 
 	vertices[0].Uv = D3DXVECTOR2(0, 0);
-	vertices[1].Uv = D3DXVECTOR2(0.2, 0);
-	vertices[2].Uv = D3DXVECTOR2(0, 0.2);
-	vertices[3].Uv = D3DXVECTOR2(0.2, 0.2);
+	vertices[1].Uv = D3DXVECTOR2(fUV_UtoEnd, 0);
+	vertices[2].Uv = D3DXVECTOR2(0, fUV_VtoEnd);
+	vertices[3].Uv = D3DXVECTOR2(fUV_UtoEnd, fUV_VtoEnd);
 
 
 	indices = new UINT[indexCount]{ 0, 1, 2, 1, 3, 2 };
@@ -90,9 +91,13 @@ ExeRect_texture::ExeRect_texture(ExecuteValues* values)
 
 	{
 		HRESULT hr = D3DX11CreateShaderResourceViewFromFile(
-			D3D::GetDevice(), (defTextures + L"crate.png").c_str(), NULL, NULL,
-				&srv,
-				NULL);
+			D3D::GetDevice(),						// Device to draw
+			(TexturesPath + L"crate.png").c_str(),	// Source file (Full path)
+			NULL,									// D3DX11_IMAGE_LOAD_INFO *pLoadInfo 
+			NULL,									// ID3DX11ThreadPump *pPump 
+			&srv,									// ID3DX11ShaderResourceView **ppShaderResourceView 
+			NULL									// HRESULT *pHResult
+		);
 
 		assert(SUCCEEDED(hr));
 	}
@@ -112,6 +117,43 @@ ExeRect_texture::~ExeRect_texture()
 
 void ExeRect_texture::Update()
 {
+
+	if (Keyboard::Get()->Up('P'))
+	{
+		flagUV++;
+
+		if (flagUV > 2)
+			flagUV = 0;
+
+	}
+
+
+
+	if (flagUV >0)
+	{
+		switch (flagUV)
+		{
+		case 1:
+			vertices[1].Uv.x = fUV_UtoEnd;
+			vertices[3].Uv.x = fUV_UtoEnd;
+			break;
+		case 2:
+			vertices[2].Uv.y = fUV_VtoEnd;
+			vertices[3].Uv.y = fUV_UtoEnd;
+			break;
+		}
+
+		D3D::GetDC()->UpdateSubresource(
+			vertexBuffer,
+			0,
+			NULL,
+			vertices,
+			sizeof(VertexColor) * vertexCount,
+			0);
+
+	}
+
+	
 
 }
 
@@ -141,9 +183,26 @@ void ExeRect_texture::Render()
 
 void ExeRect_texture::PostRender()
 {
+
 	ImGui::Begin("Color");
 	{
-		ImGui::SliderInt("Number", &number, 0,1);		
+		ImGui::SliderInt("Number", &number, 0, 1);
+
+		switch (flagUV)
+		{
+		case 0:
+			ImGui::Text("No U or V Selected. Pressing Key [ P ] cycles none - U - V"); 
+			break;
+		case 1:
+			ImGui::Text("U-Coord Selected. Pressing Key [ P ] cycles none - U - V");
+			ImGui::SliderFloat("Selected Coord : U", &fUV_UtoEnd, 0.0f, 1.0f);
+			break;
+		case 2:
+			ImGui::Text("V-Coord Selected. Pressing Key [ P ] cycles none - U - V");
+			ImGui::SliderFloat("Selected Coord : V", &fUV_VtoEnd, 0.0f, 1.0f);
+			break;
+		}
+		
 	}
 	ImGui::End();
 }

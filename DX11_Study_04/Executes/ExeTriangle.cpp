@@ -5,7 +5,7 @@ ExeTriangle::ExeTriangle(ExecuteValues* values)
 	: Execute(values)
 	, vertexCount(3), indexCount(3)
 {
-	shader = new Shader(defShader + L"002_Vertex.hlsl");
+	shader = new Shader(ShaderPath + L"002_Vertex.hlsl");
 	worldBuffer = new WorldBuffer();
 
 	vertices = new Vertex[vertexCount];

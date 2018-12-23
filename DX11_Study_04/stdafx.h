@@ -46,9 +46,9 @@ using namespace std;
 #include <DirectXTex.h>
 #pragma comment(lib, "directxtex.lib")
 
-const wstring defShader = L"../_Shaders/";
-const wstring defContents = L"../_Contents/";
-const wstring defTextures = L"../_Textures/";
+const wstring ShaderPath = L"../_Shaders/";
+const wstring ContentsPath = L"../_Contents/";
+const wstring TexturesPath = L"../_Textures/";
 
 
 #define SAFE_RELEASE(p){ if(p){ (p)->Release(); (p) = NULL; } }

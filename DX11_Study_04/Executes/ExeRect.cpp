@@ -6,7 +6,7 @@ ExeRect::ExeRect(ExecuteValues* values)
 	, vertexCount(4), indexCount(6)
 	, number(0)
 {
-	shader = new Shader(defShader + L"003_Color.hlsl");
+	shader = new Shader(ShaderPath + L"003_Color.hlsl");
 	worldBuffer = new WorldBuffer();
 	colorBuffer = new ColorBuffer();
 
